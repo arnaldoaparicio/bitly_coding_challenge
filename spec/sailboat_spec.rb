@@ -10,8 +10,8 @@ RSpec.describe Sailboat do
   it 'has attributes' do
     sailboat = Sailboat.new("12:00 PM, DAY 1")
     
-    expect(sailboat.hour).to eq(12)
-    expect(sailboat.minutes).to eq(00)
+    expect(sailboat.hour).to eq('12')
+    expect(sailboat.minutes).to eq('00')
     expect(sailboat.meridian).to eq('PM')
     expect(sailboat.finish_day).to eq(1)
   end
@@ -20,5 +20,14 @@ RSpec.describe Sailboat do
     sailboat = Sailboat.new("12:00 PM, DAY 15")
 
     expect(sailboat.finish_day).to eq(15)
+  end
+
+  it 'exists with leading zeros' do
+    sailboat = Sailboat.new('03:03 AM, DAY 99')
+
+    expect(sailboat.hour).to eq('03')
+    expect(sailboat.minutes).to eq('03')
+    expect(sailboat.meridian).to eq('AM')
+    expect(sailboat.finish_day).to eq(99)
   end
 end
