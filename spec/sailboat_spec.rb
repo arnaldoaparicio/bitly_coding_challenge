@@ -1,4 +1,5 @@
 require './lib/sailboat'
+require 'time'
 
 RSpec.describe Sailboat do
   it 'exists' do
@@ -29,5 +30,11 @@ RSpec.describe Sailboat do
     expect(sailboat.minutes).to eq('03')
     expect(sailboat.meridian).to eq('AM')
     expect(sailboat.finish_day).to eq(99)
+  end
+
+  it 'has the formatted time' do
+    sailboat = Sailboat.new('03:03 AM, DAY 99')
+    
+    expect(sailboat.formatted_time).to eq('03:03 AM')
   end
 end
