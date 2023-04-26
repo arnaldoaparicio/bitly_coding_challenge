@@ -18,6 +18,7 @@ RSpec.describe SailboatRace do
     expect(race.starting_hour).to eq('08')
     expect(race.starting_minute).to eq('00')
     expect(race.starting_day).to eq(1)
+    expect(race.starting_meridian).to eq('AM')
     expect(race.max_completion_day).to eq(99)
   end
 end
