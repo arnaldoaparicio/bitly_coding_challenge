@@ -3,10 +3,10 @@ class Sailboat
 
   def initialize(completion_time)
     # require 'pry'; binding.pry
-    @hour = completion_time[0..1]
-    @minutes = completion_time[3..4]
+    @hour = completion_time[0..1].to_i
+    @minutes = completion_time[3..4].to_i
     @meridian = completion_time[6..7]
-    @finish_day = [14..15]
+    @finish_day = completion_time[14..15].to_i
 
   end
 
