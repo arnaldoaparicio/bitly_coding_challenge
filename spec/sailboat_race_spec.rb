@@ -1,7 +1,6 @@
 require './lib/sailboat_race'
 require './lib/sailboat'
 require './lib/contestants'
-require 'time'
 
 RSpec.describe SailboatRace do
   it 'exists' do
@@ -32,7 +31,7 @@ RSpec.describe SailboatRace do
     expect(race.competitors.count).to eq(2)
   end
 
-  it 'checks the average minutes of the racers' do
+  it 'checks the average minutes of the racers per race' do
     contestantgroup1 = Contestants.new(['12:00 PM, DAY 1', '12:01 PM, DAY 1'])
     contestantgroup2 = Contestants.new(['12:00 AM, DAY 2'])
     contestantgroup3 = Contestants.new(['02:00 PM, DAY 19', '02:00 PM, DAY 20', '01:58 PM, DAY 20'])
