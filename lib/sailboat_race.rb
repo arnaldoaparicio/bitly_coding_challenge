@@ -21,7 +21,7 @@ class SailboatRace
       elsif contestant.minutes.to_i < 0 || contestant.minutes.to_i > 59
         puts 'Invalid contestant'
       else
-        array << contestant
+        valid_array << contestant
       end
     end
     valid_array
