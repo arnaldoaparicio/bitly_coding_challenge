@@ -36,4 +36,10 @@ RSpec.describe Sailboat do
     sailboat = Sailboat.new('12:00 PM, DAY 1')
     expect(sailboat.minutes_lapsed).to eq(240)
   end
+
+  it 'counts the number of minutes within a 24 hour span' do
+    sailboat = Sailboat.new('08:00 AM, DAY 2')
+
+    expect(sailboat.minutes_lapsed).to eq(1440)
+  end
 end
