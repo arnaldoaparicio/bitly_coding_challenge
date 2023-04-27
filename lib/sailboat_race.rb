@@ -7,7 +7,6 @@ class SailboatRace
     @starting_meridian = competition_time[6..7]
     @max_completion_day = max_completion_day
     @competitors = valid_contestants(contestants.all_sailboats)
-    @total_minutes = 0
   end
 
   def valid_contestants(all_contestants)
@@ -30,9 +29,10 @@ class SailboatRace
   end
 
   def contestant_average_minutes
+    total_minutes = 0
     @competitors.each do |competitor|
-      @total_minutes += competitor.minutes_lapsed
+      total_minutes += competitor.minutes_lapsed
     end
-    (@total_minutes.to_f / competitors.length).round
+    (total_minutes.to_f / competitors.length).round
   end
 end
