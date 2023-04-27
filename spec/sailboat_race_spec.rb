@@ -1,6 +1,7 @@
+require './lib/sailboat_race'
 require './lib/sailboat'
 require './lib/contestants'
-require './lib/sailboat_race'
+require 'time'
 
 RSpec.describe SailboatRace do
   it 'exists' do
@@ -32,16 +33,16 @@ RSpec.describe SailboatRace do
   end
 
   it 'checks the average minutes of the racers' do
-    contestant_group_1 = Contestants.new(['12:00 PM, DAY 1', '12:01 PM, DAY 1'])
-    contestant_group_2 = Contestants.new(['12:00 AM, DAY 2'])
-    contestant_group_3 = Contestants.new(['02:00 PM, DAY 19', '02:00 PM, DAY 20', '01:58 PM, DAY 20'])
+    contestantgroup1 = Contestants.new(['12:00 PM, DAY 1', '12:01 PM, DAY 1'])
+    contestantgroup2 = Contestants.new(['12:00 AM, DAY 2'])
+    contestantgroup3 = Contestants.new(['02:00 PM, DAY 19', '02:00 PM, DAY 20', '01:58 PM, DAY 20'])
 
-    race_1 = SailboatRace.new(contestant_group_1, '08:00 AM, DAY 1', 99)
-    race_2 = SailboatRace.new(contestant_group_2, '08:00 AM, DAY 1', 99)
-    race_3 = SailboatRace.new(contestant_group_3, '08:00 AM, DAY 1', 99)
+    race1 = SailboatRace.new(contestantgroup1, '08:00 AM, DAY 1', 99)
+    race2 = SailboatRace.new(contestantgroup2, '08:00 AM, DAY 1', 99)
+    race3 = SailboatRace.new(contestantgroup3, '08:00 AM, DAY 1', 99)
 
-    expect(race_1.contestant_average_minutes).to eq(241)
-    expect(race_2.contestant_average_minutes).to eq(960)
-    expect(race_3.contestant_average_minutes).to eq(27239)
+    expect(race1.contestant_average_minutes).to eq(241)
+    expect(race2.contestant_average_minutes).to eq(960)
+    expect(race3.contestant_average_minutes).to eq(27239)
   end
 end
