@@ -13,18 +13,26 @@ class SailboatRace
     array = []
     all_contestants.each do |contestant|
       if contestant.finish_day > @max_completion_day || contestant.finish_day == 0
-        p 'Invalid completion day'
+        nil
       elsif contestant.hour.to_i < 1 || contestant.hour.to_i > 12
-        p 'Invalid time'
+        nil
       elsif !contestant.meridian == 'PM' || !contestant.meridian == 'AM'
-        p 'Invalid meridian'
+        nil
       elsif contestant.minutes.to_i < 0 || contestant.minutes.to_i > 59
-        p 'Invalid time'
+        nil
       else
         array << contestant
-        p 'success'
+        # puts 'success'
       end
     end
     array
+  end
+
+  def contestant_average_minutes
+    total_minutes = 0
+    @competitors.each do |competitor|
+      total_minutes += competitor.minutes_lapsed
+    end
+    (total_minutes.to_f / competitors.length).round
   end
 end
