@@ -15,7 +15,8 @@ class Sailboat
 
   def format_hour(completion_time)
     return format('%02d', completion_time[1]) if completion_time[0..1].to_i.digits.length == 1
-    return format('%02d', completion_time[0..1])
+
+    format('%02d', completion_time[0..1])
   end
 
   def formatted_finish_day(completion_time)
@@ -26,21 +27,16 @@ class Sailboat
 
   def minutes_lapsed
     if @finish_day > 1
-      total_hours = ((@finish_day.to_i - 1) * 1440) - 480
+      days_lapsed_in_minutes = ((@finish_day.to_i - 1) * 1440) - 480
+      remainder_time = Time.strptime("#{hour}:#{minutes} #{meridian}", '%I:%M %P').strftime('%H:%M').to_i * 60
+      @total_time = days_lapsed_in_minutes + remainder_time + @minutes.to_i
 
-      @total_time += total_hours
-
-      @total_time += @minutes.to_i
-
-      remainder_time = Time.strptime("#{hour}:#{minutes} #{meridian}", "%I:%M %P").strftime("%H:%M").to_i * 60
-      @total_time += remainder_time
+      @total_time
 
     elsif @finish_day == 1
-      t = Time.strptime("#{hour}:#{minutes} #{meridian}", "%I:%M %P").strftime("%H:%M").to_i * 60
-      t2 = @minutes.to_i 
-      total = (t + t2) - 480
+      hours_lapsed_in_minutes = Time.strptime("#{hour}:#{minutes} #{meridian}", '%I:%M %P').strftime('%H:%M').to_i * 60
 
-      total
+      (hours_lapsed_in_minutes + @minutes.to_i) - 480
     end
   end
 end
