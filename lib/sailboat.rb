@@ -13,10 +13,6 @@ class Sailboat
     @total_time = 0
   end
 
-  def formatted_time
-    Time.parse("#{hour}:#{minutes} #{meridian}").strftime("%I:%M %p")
-  end
-
   def format_hour(completion_time)
     return format('%02d', completion_time[1]) if completion_time[0..1].to_i.digits.length == 1
     return format('%02d', completion_time[0..1])
