@@ -40,7 +40,7 @@ class Sailboat
       @total_time += remainder_time
 
     elsif @finish_day == 1
-      t = Time.strptime(@hour, "%I:%M %P").strftime("%H:%M").to_i * 60
+      t = Time.strptime("#{hour}:#{minutes} #{meridian}", "%I:%M %P").strftime("%H:%M").to_i * 60
       t2 = @minutes.to_i 
       total = (t + t2) - 480
 
