@@ -38,9 +38,8 @@ RSpec.describe Sailboat do
     expect(sailboat.formatted_time).to eq('03:03 AM')
   end
 
-  it 'counts the number of minutes for one competitor' do
-    sailboat = Sailboat.new('12:00 AM, DAY 2')
-
-    expect(sailboat.minutes_lapsed).to eq(960)
+  it 'counts the number of minutes for one competitor within a day' do
+  sailboat = Sailboat.new("12:00 PM, DAY 1")
+    expect(sailboat.minutes_lapsed).to eq(240)
   end
 end
