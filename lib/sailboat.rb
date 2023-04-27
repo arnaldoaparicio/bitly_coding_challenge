@@ -5,7 +5,7 @@ class Sailboat
   attr_reader :hour, :minutes, :meridian, :finish_day, :start_day
 
   def initialize(completion_time)
-    @hour = format('%02d', completion_time[0..1])
+    @hour = format_hour(completion_time)
     @minutes = format('%02d', completion_time[3..4])
     @meridian = completion_time[6..7]
     @finish_day = formatted_finish_day(completion_time)
@@ -37,6 +37,7 @@ class Sailboat
       hours_lapsed_in_minutes = Time.strptime("#{hour}:#{minutes} #{meridian}", '%I:%M %P').strftime('%H:%M').to_i * 60
 
       (hours_lapsed_in_minutes + @minutes.to_i) - 480
+
     end
   end
 end
