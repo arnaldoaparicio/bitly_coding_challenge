@@ -37,3 +37,10 @@ This install guide is for MacOS systems.
 
     <code>$ ruby lib/average_minutes.rb "02:00 PM, DAY 19", "02:00 PM, DAY 20", "01:58 PM, DAY 20"<br>
     27239</code>
+
+## Design Choices
+1. ```Sailboat``` class holds time (e.g: '12:00 PM, DAY 1') data: hour, minute, meridiem, finish day. Also keeps track of number of minutes it took to complete race.
+2. ```Contestants``` class converts an array of ```times``` to ```Sailboat``` instances. Also checks for the size of array (accepts from 1 to 50 elements in array).
+3. ```SailboatRace``` containts all instances of ```Sailboat``` instances. Also calculates the average number of minutes of all Sailboat competitors. By default, the start time is '08:00 AM' and finish day is day 99 but it is also possible to add optional arguments to override these values.
+4. ```average_minutes``` run file to accept command-line arguments of ```times``` and calculates the average minutes. Also contains basic error handling.
+5. ```RSpec``` testing framework is used for unit and integration tests. Edge case tests are also included.
