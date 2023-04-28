@@ -1,12 +1,12 @@
 class SailboatRace
-  attr_reader :competitors, :starting_hour, :starting_minute, :starting_meridian, :max_completion_day
+  attr_reader :competitors, :starting_hour, :starting_minute, :starting_meridiem, :max_completion_day
 
 # SailboatRace class with valid competitors, start time/day information, and last race day
 # competition_time and max_completion_day have default values but can be overridden
   def initialize(contestants, competition_time = '08:00 AM, DAY 1', max_completion_day = 99)
     @starting_hour = competition_time[0..1]
     @starting_minute = competition_time[3..4]
-    @starting_meridian = competition_time[6..7]
+    @starting_meridiem = competition_time[6..7]
     @max_completion_day = max_completion_day
     @competitors = valid_contestants(contestants.all_sailboats)
   end
@@ -19,7 +19,7 @@ class SailboatRace
         nil
       elsif contestant.hour.to_i < 1 || contestant.hour.to_i > 12
         nil
-      elsif !contestant.meridian == 'PM' || !contestant.meridian == 'AM'
+      elsif !contestant.meridiem == 'PM' || !contestant.meridiem == 'AM'
         nil
       elsif contestant.minutes.to_i < 0 || contestant.minutes.to_i > 59
         nil
