@@ -8,7 +8,7 @@ Create a program that contains an "average minutes" function. This function is g
 - Bundler 2.3.26
 
 ## Installation Guide
-This install guide is for MacOS systems.
+This install guide is for MacOS.
 1. Open your terminal, and navigate to the directory of your choice.
 2. Clone this repository ```$ git clone git@github.com:arnaldoaparicio/bitly_coding_challenge.git```.
 3. Head towards the newly cloned directory $ cd bitly_code_challenge.
@@ -42,13 +42,13 @@ Finished in 0.00317 seconds (files took 0.12843 seconds to load)
 8. Run the application by using the Ruby command along with the average_minutes.rb file and at least one valid time as shown below to calculate and return the average minutes of the boat race.
 
 ```
-$ ruby lib/average_minutes.rb "02:00 PM, DAY 19", "02:00 PM, DAY 20", "01:58 PM, DAY 20"<br>
+$ ruby lib/average_minutes.rb "02:00 PM, DAY 19", "02:00 PM, DAY 20", "01:58 PM, DAY 20"
 27239
 ```
 
 ## Design Choices
-1. ```Sailboat``` class holds time (e.g: '12:00 PM, DAY 1') data: hour, minute, meridiem, finish day. Also keeps track of number of minutes it took to complete race.
+1. ```Sailboat``` class holds time data (e.g: '12:00 PM, DAY 1'): hour, minute, meridiem, finish day. Also keeps track of number of minutes it took to complete race.
 2. ```Contestants``` class converts an array of ```times``` to ```Sailboat``` instances. Also checks for the size of array (accepts from 1 to 50 elements in array).
-3. ```SailboatRace``` containts all instances of ```Sailboat``` instances. Also calculates the average number of minutes of all Sailboat competitors. By default, the start time is '08:00 AM' and finish day is day 99 but it is also possible to add optional arguments to override these values.
+3. ```SailboatRace``` contains all instances of ```Sailboat``` instances. Also calculates the average number of minutes of all Sailboat competitors. By default, the start time is '08:00 AM' and finish day is day 99 but it is also possible to add optional arguments to override these values.
 4. ```average_minutes``` run file to accept command-line arguments of ```times``` and calculates the average minutes. Also contains basic error handling.
 5. ```RSpec``` testing framework is used for unit and integration tests. Edge case tests are also included.
