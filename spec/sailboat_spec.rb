@@ -13,7 +13,7 @@ RSpec.describe Sailboat do
     
     expect(sailboat.hour).to eq('12')
     expect(sailboat.minutes).to eq('00')
-    expect(sailboat.meridian).to eq('PM')
+    expect(sailboat.meridiem).to eq('PM')
     expect(sailboat.finish_day).to eq(1)
   end
 
@@ -28,7 +28,7 @@ RSpec.describe Sailboat do
 
     expect(sailboat.hour).to eq('03')
     expect(sailboat.minutes).to eq('03')
-    expect(sailboat.meridian).to eq('AM')
+    expect(sailboat.meridiem).to eq('AM')
     expect(sailboat.finish_day).to eq(99)
   end
 
