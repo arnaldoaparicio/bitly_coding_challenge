@@ -15,4 +15,44 @@ RSpec.describe Contestants do
     expect(contestants.all_sailboats.empty?).to eq(false)
     expect(contestants.all_sailboats.count).to eq(2)
   end
+
+  it 'is invalid when array is empty' do
+    contestants = Contestants.new([])
+
+    expect(contestants.all_sailboats).to eq(nil)
+  end
+
+  it 'is invalid when array is over 50' do
+    contestant_array = ["12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1"]
+
+    contestants = Contestants.new(contestant_array)
+    
+    expect(contestants.all_sailboats).to eq(nil)
+  end
+
+  it 'is valid with 50 contestants' do
+    contestant_array = ["12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1",
+                        "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1", "12:01 PM, DAY 1"]
+    contestants = Contestants.new(contestant_array)
+
+    expect(contestants.all_sailboats.size).to eq(50)
+  end
 end
