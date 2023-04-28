@@ -9,7 +9,7 @@ class Contestants
 # Converts each time to Sailboat instance
   def format_contestants(all_contestants)
     if all_contestants.size < 1 || all_contestants.size > 50
-      puts 'Invalid amount of competitors'
+      nil
     else
     all_contestants.map do |contestant|
       Sailboat.new(contestant)
