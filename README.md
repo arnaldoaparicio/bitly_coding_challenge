@@ -54,7 +54,7 @@ $ ruby lib/average_minutes.rb "02:00 PM, DAY 19", "02:00 PM, DAY 20", "01:58 PM,
 5. ```RSpec``` testing framework is used for unit and integration tests. Edge case tests are also included.
 
 ## 'Playground' version
-This version is a branch of my original completed challenge. This was made sometime after finishing the original challenge and was meant to just have some fun with it and add some features that did not make it to the original.
+This version is a branch of my original completed challenge. This was made sometime after finishing the last round of interviews and was meant to just have some fun with it and add some features that did not make it to the original.
 
 ## What's new?
 - In ```Sailboat``` class, a new variable was added: ```start_time```. This was meant to allow the user to change the start time of the boat race for a single ```Sailboat``` racer. Default is set to '08:00 AM'
