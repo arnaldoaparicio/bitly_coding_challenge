@@ -15,7 +15,7 @@ This install guide is for MacOS.
 4. Check to see if you have the correct version of Ruby, ```$ ruby -v```. If you do not have the correct version of Ruby or it is not installed, this [guide](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-macos) should be able to help with installing or upgrading Ruby with Rbenv.
 
 ```
-$ ruby -v <br>
+$ ruby -v
     ruby 2.7.6p219 (2022-04-12 revision c9c2245c0a) [arm64-darwin20]
 ```
 
@@ -52,3 +52,13 @@ $ ruby lib/average_minutes.rb "02:00 PM, DAY 19", "02:00 PM, DAY 20", "01:58 PM,
 3. ```SailboatRace``` contains all instances of ```Sailboat``` instances. Also calculates the average number of minutes of all Sailboat competitors. By default, the start time is '08:00 AM' and finish day is day 99 but it is also possible to add optional arguments to override these values.
 4. ```average_minutes``` run file to accept command-line arguments of ```times``` and calculates the average minutes. Also contains basic error handling.
 5. ```RSpec``` testing framework is used for unit and integration tests. Edge case tests are also included.
+
+## 'Playground' version
+This version is a branch of my original completed challenge. This was made sometime after finishing the original challenge and was meant to just have some fun with it and add some features that did not make it to the original.
+
+## What's new?
+- In ```Sailboat``` class, a new variable was added: ```start_time```. This was meant to allow the user to change the start time of the boat race for a single ```Sailboat``` racer. Default is set to '08:00 AM'
+- Also in the ```Sailboat``` class, the ```minutes_lapsed``` method was changed to reflect above changes, thus making it more dynamic.
+- In the ```SailboatRace``` class, the ```contestant_average_minutes``` has additional code to change the output. Rather than return the average in minutes, it is converted to days, hours, and minutes. 
+Example: ```"Average time: 2 days, 2 hours, 34 minutes"```
+- In ```average_minutes```, there is an option to change the start time for all Sailboat racers.
