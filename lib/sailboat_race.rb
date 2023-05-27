@@ -34,8 +34,15 @@ class SailboatRace
   def contestant_average_minutes
     total_minutes = 0
     @competitors.each do |competitor|
+      competitor.start_time = "#{@starting_hour}:#{@starting_minute} #{@starting_meridiem}"
       total_minutes += competitor.minutes_lapsed
     end
-    (total_minutes.to_f / competitors.length).round
+    average = (total_minutes.to_f / competitors.length).round
+    # require 'pry'; binding.pry
+    recorded_days = average / 1440
+    recorded_hours = (average / 60) % 24
+    recorded_minutes = average % 60
+
+    puts "Average time: #{recorded_days} days, #{recorded_hours} hours, #{recorded_minutes} minutes"
   end
 end
